@@ -4,12 +4,13 @@ import { Navbar, Row, Col } from 'react-bootstrap';
 import Search from '../../components/Search';
 import VendorsFilter from '../../components/VendorsFilter';
 import { ROOT_ROUTE } from '../../constants';
+import './index.css';
 
 const GeneralLayout = ({
   children, isRootRoute, setSearchString, searchString, setVendor, vendor,
 }) => (
   <>
-    <Navbar fixed="top" className="p-3 pl-5 pb-4" bg="dark" variant="dark">
+    <Navbar className="top-nav p-3 pl-5 pb-4" bg="dark" variant="dark">
       <Row className="w-100 justify-content-between">
         <Col className="mt-2" sm={12} md={4}>
           <NavLink to={ROOT_ROUTE} className="project-name mr-auto">
