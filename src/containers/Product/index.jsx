@@ -5,6 +5,7 @@ import {
 } from 'react-bootstrap';
 import fetchData from '../../services/fetchData';
 import Video from '../../components/Video';
+import Spinner from '../../components/Spinner';
 import './index.css';
 
 function getMediasByType(collection = [], mediaType) {
@@ -33,33 +34,34 @@ const Product = () => {
 
   return (
     productData
-    && (
-    <Container className="product-container">
-      <Row className="d-flex justify-content-between align-items-center">
-        <Col className="mb-5" xs={12} md={4}>
-          {image && <Image src={image.url} alt="product image" fluid />}
-          <div className="text-left">
-            <h4 className="mb-1">{productData.name}</h4>
-            <p className="vendor">
-              Vendor:
-              {` ${productData.vendor}`}
-            </p>
-          </div>
-        </Col>
-        <Col xs={12} md={7}>
-          <Container className="videos-container">
-            <Row>
-              {videos && videos.map(({ id: keyId, url }) => (
-                <Col key={keyId} xs={12} className="mb-3">
-                  <Video src={url} />
-                </Col>
-              ))}
-            </Row>
-          </Container>
-        </Col>
-      </Row>
-    </Container>
-    )
+      ? (
+        <Container className="product-container">
+          <Row className="d-flex justify-content-between align-items-center">
+            <Col className="mb-5" xs={12} md={4}>
+              {image && <Image src={image.url} alt="product image" fluid />}
+              <div className="text-left">
+                <h4 className="mb-1">{productData.name}</h4>
+                <p className="vendor">
+                  Vendor:
+                  {` ${productData.vendor}`}
+                </p>
+              </div>
+            </Col>
+            <Col xs={12} md={7}>
+              <Container className="videos-container">
+                <Row>
+                  {videos && videos.map(({ id: keyId, url }) => (
+                    <Col key={keyId} xs={12} className="mb-3">
+                      <Video src={url} />
+                    </Col>
+                  ))}
+                </Row>
+              </Container>
+            </Col>
+          </Row>
+        </Container>
+      )
+      : <Spinner />
   );
 };
 
