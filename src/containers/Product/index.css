@@ -3,8 +3,9 @@
     margin-bottom: 100px;
     padding: 3% 5%;
     background-color: var(--color-white);
-    border-radius: 50px 0 50px 50px;
+    border-radius: 30px 0 30px 40px;
     box-shadow: 5px 5px 20px var(--color-gray);
+    overflow: hidden;
 }
 
 .product-container .vendor {
@@ -15,10 +16,16 @@
 .product-container .videos-container {
     overflow: auto;
     height: 535px;
+    border-left: 1px solid var(--color-light-gray);
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
+    .product-container {
+        height: auto;
+        transform: translateY(-60px);
+    }
     .product-container .videos-container {
-        border-left: 1px solid var(--color-light-gray);
+        height: auto;
+        border: none;
     }
 }
