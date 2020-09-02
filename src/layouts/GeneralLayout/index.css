@@ -1,0 +1,13 @@
+.top-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 50;
+}
+
+@media (min-width: 768px) {
+    .top-nav {
+        position: fixed;
+    }
+  }
