@@ -5,9 +5,11 @@ import { NavLink } from 'react-router-dom';
 import ProductItem from '../../components/ProductItem';
 import PromotionItem from '../../components/PromotionItem';
 import Spinner from '../../components/Spinner';
+import NoContent from '../../components/NoContent';
 import getProductsListLoadingStatus from '../../selectors/getProductsListLoadingStatus';
 import getMappedProductsList from '../../selectors/getMappedProductsList';
 import getPromotionItem from '../../selectors/getPromotionItem';
+import getProductsListFetchStatus from '../../selectors/getProductsListFetchStatus';
 
 function shouldShowPromotionItem(isPromotionVisible, promotionText, productsList) {
   return isPromotionVisible && promotionText && productsList.length;
@@ -24,6 +26,7 @@ function getItemTemplate(key, Component) {
 const ProductsList = () => {
   const areProductsLoaded = useSelector(getProductsListLoadingStatus);
   const mappedProductsList = useSelector(getMappedProductsList);
+  const productsListFetchStatus = useSelector(getProductsListFetchStatus);
   const {
     hide: isPromotionHidden, text: promotionText, order: promotionOrder,
   } = useSelector(getPromotionItem);
@@ -58,12 +61,16 @@ const ProductsList = () => {
     return targetProductsList;
   }, [mappedProductsList, isPromotionHidden, promotionText, promotionOrder]);
 
+  const listWithPromotion = getProductsListWithPromotion();
+
   return (
     <Container data-testid="products-container">
       {areProductsLoaded
         ? (
           <Row>
-            {getProductsListWithPromotion()}
+            {listWithPromotion.length
+              ? listWithPromotion
+              : (productsListFetchStatus && <NoContent />)}
           </Row>
         )
         : <Spinner animation="border" variant="light" />}
