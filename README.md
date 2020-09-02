@@ -6,7 +6,8 @@ React candidate pet project
 2. Caching requests.
 3. Show small image thumbnail preview on product card while loading images.
 4. Use components styles (index.css) as css modules.
-5. Migrate mock data in json to DB. (Stored on server)
+5. Migrate mock data in json to DB. (Stored on server).
+6. Scroll to top button for mobile devices on home page.
 
 ## Available Scripts
 
