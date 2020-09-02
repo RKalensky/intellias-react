@@ -1,8 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React candidate pet project
+
+## TODOs and improvements
+
+1. Products chuncks loading - pagination or load on scroll to optimize app peformance.
+2. Caching requests.
+3. Show small image thumbnail preview on product card while loading images.
+4. Use components styles (index.css) as css modules.
+5. Migrate mock data in json to DB. (Stored on server)
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm start`
+
+Fixes all autamatically fixable issues within .js and .jsx files
 
 ### `npm start`
 
@@ -66,3 +78,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

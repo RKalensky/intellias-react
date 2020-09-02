@@ -1,0 +1,75 @@
+.product-card {
+    --video-height: 206px;
+    --vendor-block-height: 30px;
+
+    position: relative;
+    height: 330px;
+    max-width: 210px;
+    margin: 0 auto;
+    padding: var(--video-height) 20px 48px;
+    border-radius: 12px;
+    box-shadow: 3px 3px 10px 0 var(--color-gray);
+    background: white;
+    overflow: hidden;
+    transition: transform .3s ease-in-out;
+}
+
+.product-card p {
+    margin: 0;
+    text-align: left;
+}
+
+.product-card .poster {
+    transition: opacity 1s ease-in-out;
+}
+
+.product-card:hover {
+    transform: scale(1.1);
+}
+
+.product-card .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: var(--video-height);
+    overflow: hidden;
+    background-color: var(--color-black);
+    box-shadow: 0 2px 15px 0 #c7c7c7;
+}
+
+.product-card .video-container video {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 100%;
+}
+
+.product-card .name {
+    max-height: 74px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.product-card .vendor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: var(--vendor-block-height);
+    padding: 0 15px;
+    font: 300 12px / 1.2 Roboto;
+}
+
+.product-card .vendor:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    height: 1px;
+    width: 100%;
+    background-image: linear-gradient(to right, var(--color-gray) 40%, rgba(255, 255, 255, 0) 90%);
+}
